@@ -1,0 +1,178 @@
+<style>
+    html,
+    body {
+        margin: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .question-screen {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: hsl(239, 83%, 28%);
+        color: hsl(242, 84%, 99%);
+        font-family: 'OPTIKorinna-Agency';
+        font-size: 60px;
+        text-shadow: 5px 3px 2px black;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding: 100px;
+        box-sizing: border-box;
+        text-align: center;
+
+    }
+
+    @font-face {
+        font-family: 'OPTIKorinna-Agency';
+        src: url('fonts/OPTIKorinna-Agency.ttf.woff') format('woff'),
+        url('fonts/OPTIKorinna-Agency.ttf.svg#OPTIKorinna-Agency') format('svg'),
+        url('fonts/OPTIKorinna-Agency.ttf.eot'),
+        url('fonts/OPTIKorinna-Agency.ttf.eot?#iefix') format('embedded-opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .board {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        background: black;
+
+        color: white;
+        height: 100vh;
+        width: 100vw;
+        border: 10px solid black;
+        box-sizing: border-box;
+    }
+
+    .category {
+        background-color: HSL(245, 100%, 36%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: "BenchNine", sans-serif;
+        font-size: 3vw;
+        text-align: center;
+        line-height: 1em;
+        Xoverflow: hidden;
+        border-bottom: 3px solid black;
+        box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .category-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .category-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .category-3 {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+
+    .category-4 {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+    }
+
+    .category-5 {
+        grid-column: 5 / 6;
+        grid-row: 1 / 2;
+    }
+
+    .category-6 {
+        grid-column: 6 / 7;
+        grid-row: 1 / 2;
+    }
+
+    .question {
+        background-color: HSL(237, 92%, 25%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "BenchNine", sans-serif;
+        /* font-size: 70px; */
+        font-size: 10vh;
+        color: HSL(27, 67%, 65%);
+        cursor: pointer;
+        text-shadow: 3px 1px 1px black;
+        box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.3);
+
+    }
+
+    .question-1 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .question-2 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .question-3 {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+
+    .question-4 {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+    }
+
+    .question-5 {
+        grid-column: 1 / 2;
+        grid-row: 6 / 7;
+    }
+
+    .board .question-screen {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .question-1:hover .question-screen {
+        display: flex;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=BenchNine:700" rel="stylesheet">
+
+
+<div class="board">
+    <div class="category category-1">Things</div>
+    <div class="category category-2">Category 2</div>
+    <div class="category category-3">Animals</div>
+    <div class="category category-4">Places that start with &lsquo;A&rsquo;</div>
+    <div class="category category-5">Things</div>
+    <div class="category category-6">Things</div>
+    <div class="question question-1">$200
+        <div class="question-screen">
+            &ldquo;The father of history&rdquo;, this ancient greek wrote a 9-volume work on the wars between Greece & Persia
+        </div>
+
+    </div>
+    <div class="question question-2">$400</div>
+    <div class="question question-3">$600</div>
+    <div class="question question-4">$800</div>
+    <div class="question question-5">$1000</div>
+</div>
+<div class="question-screen">
+    &ldquo;The father of history&rdquo;, this ancient greek wrote a 9-volume work on the wars between Greece & Persia
+</div>
