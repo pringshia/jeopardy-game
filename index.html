@@ -56,6 +56,7 @@
 
     .category {
         background-color: HSL(245, 100%, 36%);
+        padding: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -67,36 +68,32 @@
         Xoverflow: hidden;
         border-bottom: 3px solid black;
         box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.3);
+        grid-row: 1 / 2;
+
     }
 
     .category-1 {
         grid-column: 1 / 2;
-        grid-row: 1 / 2;
     }
 
     .category-2 {
         grid-column: 2 / 3;
-        grid-row: 1 / 2;
     }
 
     .category-3 {
         grid-column: 3 / 4;
-        grid-row: 1 / 2;
     }
 
     .category-4 {
         grid-column: 4 / 5;
-        grid-row: 1 / 2;
     }
 
     .category-5 {
         grid-column: 5 / 6;
-        grid-row: 1 / 2;
     }
 
     .category-6 {
         grid-column: 6 / 7;
-        grid-row: 1 / 2;
     }
 
     .question {
@@ -115,27 +112,22 @@
     }
 
     .question-1 {
-        grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
 
     .question-2 {
-        grid-column: 1 / 2;
         grid-row: 3 / 4;
     }
 
     .question-3 {
-        grid-column: 1 / 2;
         grid-row: 4 / 5;
     }
 
     .question-4 {
-        grid-column: 1 / 2;
         grid-row: 5 / 6;
     }
 
     .question-5 {
-        grid-column: 1 / 2;
         grid-row: 6 / 7;
     }
 
@@ -146,33 +138,114 @@
         bottom: 0;
         left: 0;
         right: 0;
+        transition: transform 0.5s 0.2s linear;
+        transform-origin: 0 0;
     }
 
-    .question-1:hover .question-screen {
+    /* .question-1:hover .question-screen {
         display: flex;
-    }
+    } */
 </style>
 <link href="https://fonts.googleapis.com/css?family=BenchNine:700" rel="stylesheet">
 
 
 <div class="board">
-    <div class="category category-1">Things</div>
-    <div class="category category-2">Category 2</div>
+    <div class="category category-1">Disney Movie Flashbacks</div>
+    <div class="category category-2">Computer Stuff</div>
     <div class="category category-3">Animals</div>
     <div class="category category-4">Places that start with &lsquo;A&rsquo;</div>
-    <div class="category category-5">Things</div>
-    <div class="category category-6">Things</div>
-    <div class="question question-1">$200
-        <div class="question-screen">
+    <div class="category category-5">Things that are awesome</div>
+    <div class="category category-6">Must "C" TV</div>
+    <div class="question category-1 question-1">$200
+        <!-- <div class="question-screen">
             &ldquo;The father of history&rdquo;, this ancient greek wrote a 9-volume work on the wars between Greece & Persia
-        </div>
-
+        </div> -->
     </div>
-    <div class="question question-2">$400</div>
-    <div class="question question-3">$600</div>
-    <div class="question question-4">$800</div>
-    <div class="question question-5">$1000</div>
+    <div class="question category-1 question-2">$400</div>
+    <div class="question category-1 question-3">$600</div>
+    <div class="question category-1 question-4">$800</div>
+    <div class="question category-1 question-5">$1000</div>
+
+    <div class="question category-2 question-1">$200</div>
+    <div class="question category-2 question-2">$400</div>
+    <div class="question category-2 question-3">$600</div>
+    <div class="question category-2 question-4">$800</div>
+    <div class="question category-2 question-5">$1000</div>
+
+    <div class="question category-3 question-1">$200</div>
+    <div class="question category-3 question-2">$400</div>
+    <div class="question category-3 question-3">$600</div>
+    <div class="question category-3 question-4">$800</div>
+    <div class="question category-3 question-5">$1000</div>
+
+
+    <div class="question category-4 question-1">$200</div>
+    <div class="question category-4 question-2">$400</div>
+    <div class="question category-4 question-3">$600</div>
+    <div class="question category-4 question-4">$800</div>
+    <div class="question category-4 question-5">$1000</div>
+
+
+    <div class="question category-5 question-1">$200</div>
+    <div class="question category-5 question-2">$400</div>
+    <div class="question category-5 question-3">$600</div>
+    <div class="question category-5 question-4">$800
+        <div class="question-screen">
+            A self-directed, community-driven educational retreat for programmers in New York City
+        </div>
+    </div>
+    <div class="question category-5 question-5">$1000</div>
+
+    <div class="question category-6 question-1">$200</div>
+    <div class="question category-6 question-2">$400</div>
+    <div class="question category-6 question-3">$600</div>
+    <div class="question category-6 question-4">$800</div>
+    <div class="question category-6 question-5">$1000</div>
+
 </div>
-<div class="question-screen">
+<!-- <div class="question-screen">
     &ldquo;The father of history&rdquo;, this ancient greek wrote a 9-volume work on the wars between Greece & Persia
-</div>
+</div> -->
+
+<script>
+    const showQuestion = function (e) {
+
+        if (e.target !== e.currentTarget) return;
+
+        const scoreEl = e.target;
+        const qEl = e.target.querySelector(".question-screen");
+
+        if (!qEl) return;
+
+        const size = scoreEl.getBoundingClientRect();
+        console.log(size);
+        // console.log(qEl);
+        console.log(Math.floor(size.top), Math.floor(size.left));
+        console.log(`scale(0.1, 0.1) translate3d(${Math.floor(size.top)}px, ${Math.floor(size.left)}px, 0)`);
+
+        const xScale = size.width / document.documentElement.clientWidth;
+        const yScale = size.height / document.documentElement.clientHeight;
+
+        console.log(xScale, yScale)
+
+
+        qEl.style.display = "flex";
+        if (window.location.hash) {
+            qEl.innerText = atob(window.location.hash.substring(1) /* remove the prefixed # */)
+        }
+        qEl.style.transform = "translate(" + Math.floor(size.left) + "px, " + Math.floor(size.top) + "px) scale(" + xScale + ", " + yScale + ")";
+        setTimeout(() => {
+            qEl.style.transform = "translate3d(0, 0, 0) scale(1, 1)"
+        }, 0);
+        const closeQuestion = function (e) {
+            e.target.removeEventListener("click", closeQuestion);
+            e.target.style.display = "none";
+        }
+        qEl.addEventListener("click", closeQuestion)
+    };
+
+    document
+        .querySelectorAll(".question")
+        .forEach(el => el.addEventListener("click", showQuestion));
+
+</script>
