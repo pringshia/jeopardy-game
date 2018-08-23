@@ -109,7 +109,7 @@
         cursor: pointer;
         text-shadow: 3px 1px 1px black;
         box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.3);
-
+        user-select: none;
     }
 
     .question-1 {
@@ -141,6 +141,7 @@
         right: 0;
         transition: transform 0.5s 0.2s linear;
         transform-origin: 0 0;
+        user-select: none;
     }
 
     /* .question-1:hover .question-screen {
@@ -219,10 +220,6 @@
         if (!qEl) return;
 
         const size = scoreEl.getBoundingClientRect();
-        console.log(size);
-        // console.log(qEl);
-        console.log(Math.floor(size.top), Math.floor(size.left));
-        console.log(`scale(0.1, 0.1) translate3d(${Math.floor(size.top)}px, ${Math.floor(size.left)}px, 0)`);
 
         const xScale = size.width / document.documentElement.clientWidth;
         const yScale = size.height / document.documentElement.clientHeight;
