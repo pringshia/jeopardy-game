@@ -251,11 +251,10 @@
             // LAST
             const xScale = size.width / document.documentElement.clientWidth;
             const yScale = size.height / document.documentElement.clientHeight;
+            qEl.style.display = "flex";
 
             // INVERT
             qEl.style.transform = "translate(" + Math.floor(size.left) + "px, " + Math.floor(size.top) + "px) scale(" + xScale + ", " + yScale + ")";
-            qEl.style.display = "flex";
-
 
             // PLAY
             setTimeout(() => {
