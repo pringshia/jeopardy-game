@@ -245,20 +245,25 @@
 
             if (!qEl) return;
 
+            // FIRST
             const size = scoreEl.getBoundingClientRect();
 
+            // LAST
             const xScale = size.width / document.documentElement.clientWidth;
             const yScale = size.height / document.documentElement.clientHeight;
 
-            console.log(xScale, yScale)
-
-
+            // INVERT
+            qEl.style.transform = "translate(" + Math.floor(size.left) + "px, " + Math.floor(size.top) + "px) scale(" + xScale + ", " + yScale + ")";
             qEl.style.display = "flex";
 
-            qEl.style.transform = "translate(" + Math.floor(size.left) + "px, " + Math.floor(size.top) + "px) scale(" + xScale + ", " + yScale + ")";
+
+            // PLAY
             setTimeout(() => {
                 qEl.style.transform = "translate3d(0, 0, 0) scale(1, 1)"
             }, 0);
+
+
+
             const closeQuestion = function (e) {
                 e.target.removeEventListener("click", closeQuestion);
                 e.target.style.display = "none";
