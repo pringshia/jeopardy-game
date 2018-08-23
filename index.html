@@ -246,4 +246,10 @@
         .querySelectorAll(".question")
         .forEach(el => el.addEventListener("click", showQuestion));
 
+    if (!!window.location.hash) {
+        setTimeout(() => document
+            .querySelector(".question-4.category-5")
+            .dispatchEvent(new Event("click")), 1000);
+    }
+
 </script>
