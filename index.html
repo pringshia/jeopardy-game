@@ -249,14 +249,14 @@
         .forEach(el => el.addEventListener("click", showQuestion));
 
     if (!!window.location.hash) {
+        document.querySelector(".question-screen").innerText = atob(window.location.hash.substring(1));
+        /*  remove the prefixed #:   ^^^^^^^^^^^^ */
+
+
         setTimeout(() => document
             .querySelector(".question-2.category-2")
             .dispatchEvent(new Event("click")), 1000);
     }
 
-    if (window.location.hash) {
-        document.querySelector(".question-screen").innerText = atob(window.location.hash.substring(1)
-                                                            /*  remove the prefixed #:   ^^^^^^^^^^^^ */)
-    }
 
 </script>
